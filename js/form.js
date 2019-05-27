@@ -57,27 +57,27 @@ function validaPaciente(paciente) {
     var erros = [];
 
     if (paciente.nome.length == 0) {
-        erros.push("O Nome do Paciente não deve ser um campo vazio");
+        erros.push("O Nome do Paciente não deve ser um campo vazio.");
     }
 
     if (paciente.peso.length == 0) {
-        erros.push("O Peso do Paciente não deve ser um campo vazio");
+        erros.push("O Peso do Paciente não deve ser um campo vazio.");
     }
 
     if (paciente.altura.length == 0) {
-        erros.push("A Altura do Paciente não deve ser um campo vazio");
+        erros.push("A Altura do Paciente não deve ser um campo vazio.");
     }
 
     if (paciente.gordura.length == 0) {
-        erros.push("A Porcentagem de Gordura do Paciente não deve ser um campo vazio");
+        erros.push("A Porcentagem de Gordura do Paciente não deve ser um campo vazio.");
     }
 
     if (!validaPeso(paciente.peso)) {
-        erros.push("O Peso está inválido");
+        erros.push("O Peso está inválido.");
     }
 
     if (!validaAltura(paciente.altura)) {
-        erros.push("A Altura está inválida");
+        erros.push("A Altura está inválida.");
     }
 
     return erros;
@@ -85,19 +85,11 @@ function validaPaciente(paciente) {
 
 
 function geraErro(erros) {
-    var ul = document.querySelector("#mensagem-erro");
-    var header = document.createElement("li");
-    var h4 = document.createElement("h4");
-    header.classList.add("collection-header");
-    h4.textContent = "Erros Encontrados no Formulário";
-
-    ul.appendChild(header);
-    header.appendChild(h4);
+    var blockquote = document.querySelector("#mensagem-erro");
 
     erros.forEach(function (erro) {
 
         var li = document.createElement("li");
-        li.classList.add("collection-item");
 
         var span = document.createElement("span");
         span.classList.add("red-text");
@@ -105,7 +97,7 @@ function geraErro(erros) {
 
         span.textContent = erro;
         li.appendChild(span);
-        ul.appendChild(li);
+        blockquote.appendChild(li);
     });
 }
 
